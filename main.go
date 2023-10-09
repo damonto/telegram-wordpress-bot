@@ -266,7 +266,6 @@ func resolveChannelByChannelId(client *tg.Client, channelId int64) (*tg.InputCha
 	if !ok {
 		return nil, errors.New("failed to get channel access hash")
 	}
-
 	return &tg.InputChannel{
 		ChannelID:  channel.GetID(),
 		AccessHash: accessHash,

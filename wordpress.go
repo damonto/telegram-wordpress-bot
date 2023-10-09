@@ -27,7 +27,6 @@ func NewWordpressClient(endpoint, username, password string) WordpressClient {
 		c.SetBasicAuth(username, password)
 		return nil
 	})
-
 	return &wordpressClient{
 		Endpoint:    endpoint,
 		restyClient: restyClient,
@@ -55,7 +54,6 @@ func (w wordpressClient) uploadMedia(path string) (int, string, error) {
 	if resp.IsError() {
 		return 0, "", errors.New(string(resp.Body()))
 	}
-
 	return mediaResp.Id, mediaResp.SourceUrl, err
 }
 
