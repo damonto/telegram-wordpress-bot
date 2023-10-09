@@ -233,7 +233,6 @@ func messageIdRange(start int, end int) []tg.InputMessageClass {
 	for i := start; i <= end; i++ {
 		numbers = append(numbers, &tg.InputMessageID{ID: i})
 	}
-
 	return numbers
 }
 
