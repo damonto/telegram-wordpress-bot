@@ -84,7 +84,7 @@ func (w wordpressClient) CreatePost(title, content string, media []string) (stri
 
 	var featuredMediaId int
 	uploadedMedia.Range(func(key, value any) bool {
-		content += w.GenerateHtml(value.(string))
+		content += w.generateHtml(value.(string))
 
 		if strings.HasSuffix(value.(string), "jpg") && featuredMediaId == 0 {
 			featuredMediaId = key.(int)
@@ -107,7 +107,7 @@ func (w wordpressClient) CreatePost(title, content string, media []string) (stri
 	return postResp.Link, err
 }
 
-func (w wordpressClient) GenerateHtml(value string) string {
+func (w wordpressClient) generateHtml(value string) string {
 	if strings.HasSuffix(value, "jpg") {
 		return fmt.Sprintf("<img width='100%%' src='%s' /> <br />", value)
 	}
