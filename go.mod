@@ -7,6 +7,7 @@ require (
 	github.com/go-resty/resty/v2 v2.9.1
 	github.com/gotd/td v0.88.0
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d
+	golang.org/x/sync v0.4.0
 	golang.org/x/term v0.13.0
 )
 
@@ -31,7 +32,6 @@ require (
 	go.uber.org/zap v1.26.0 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/net v0.16.0 // indirect
-	golang.org/x/sync v0.4.0 // indirect
 	golang.org/x/sys v0.13.0 // indirect
 	gorm.io/driver/sqlite v1.5.3 // indirect
 	gorm.io/gorm v1.25.4 // indirect
