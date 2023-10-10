@@ -8,7 +8,6 @@ require (
 	github.com/gotd/td v0.88.0
 	golang.org/x/exp v0.0.0-20231006140011-7918f672742d
 	golang.org/x/sync v0.4.0
-	golang.org/x/term v0.13.0
 )
 
 require (
