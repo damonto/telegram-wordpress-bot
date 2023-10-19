@@ -241,16 +241,16 @@ func parseMessageLink(client *tg.Client, messageLink string) (*tg.InputChannel, 
 		return nil, 0, errors.New("incorrect message link")
 	}
 
-	factor := strings.Split(strings.Replace(messageLink, "https://t.me/", "", 1), "/")
-	messageId, _ := strconv.ParseInt(factor[len(factor)-1], 10, 0)
+	parts := strings.Split(strings.Replace(messageLink, "https://t.me/", "", 1), "/")
+	messageId, _ := strconv.ParseInt(parts[len(parts)-1], 10, 0)
 	// 群组都是 https://t.me/c/channelId/messageId
-	if len(factor) == 3 && factor[0] == "c" {
-		channelId, _ := strconv.ParseInt(factor[1], 10, 0)
+	if len(parts) == 3 && parts[0] == "c" {
+		channelId, _ := strconv.ParseInt(parts[1], 10, 0)
 		inputChannel, err := resolveChannelByChannelId(client, channelId)
 		return inputChannel, int(messageId), err
 	}
 
-	inputChannel, err := resolveChannelByUsername(client, factor[0])
+	inputChannel, err := resolveChannelByUsername(client, parts[0])
 	return inputChannel, int(messageId), err
 }
 
