@@ -104,7 +104,8 @@ func download(client *tg.Client, ctx context.Context, messages []*tg.Message) ([
 		return []string{}, err
 	}
 
-	mediaDocuments := sync.Map{}
+	mediaDocuments := []string{}
+	mediaLock := sync.RWMutex{}
 	errgrp := errgroup.Group{}
 	for _, message := range messages {
 		media, ok := message.GetMedia()
@@ -120,7 +121,9 @@ func download(client *tg.Client, ctx context.Context, messages []*tg.Message) ([
 					if err != nil {
 						return err
 					}
-					mediaDocuments.Store(mediaPhoto.Photo.GetID(), path)
+					mediaLock.Lock()
+					defer mediaLock.Unlock()
+					mediaDocuments = append(mediaDocuments, path)
 					return nil
 				})
 			}(message)
@@ -132,7 +135,9 @@ func download(client *tg.Client, ctx context.Context, messages []*tg.Message) ([
 					if err != nil {
 						return err
 					}
-					mediaDocuments.Store(mediaDocument.Document.GetID(), path)
+					mediaLock.Lock()
+					defer mediaLock.Unlock()
+					mediaDocuments = append(mediaDocuments, path)
 					return nil
 				})
 			}(message)
@@ -145,13 +150,7 @@ func download(client *tg.Client, ctx context.Context, messages []*tg.Message) ([
 		return []string{}, err
 	}
 
-	downloadedMedia := []string{}
-	mediaDocuments.Range(func(key, value any) bool {
-		downloadedMedia = append(downloadedMedia, value.(string))
-		return true
-	})
-
-	return downloadedMedia, nil
+	return mediaDocuments, nil
 }
 
 func downloadMediaDocument(ctx context.Context, client *tg.Client, mediaDocument tg.DocumentClass) (string, error) {

@@ -92,6 +92,11 @@ func (w wordpressClient) CreatePost(title, content string, media []string) (stri
 		return true
 	})
 
+	if len(title) > 20 {
+		titles := strings.Split(title, "\n")
+		title = titles[0]
+	}
+
 	payload := map[string]interface{}{
 		"status":         "publish",
 		"title":          title,
