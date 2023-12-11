@@ -5,7 +5,7 @@ go 1.21.1
 require (
 	github.com/celestix/gotgproto v1.0.0-beta13
 	github.com/go-resty/resty/v2 v2.10.0
-	github.com/gotd/td v0.89.0
+	github.com/gotd/td v0.91.0
 	golang.org/x/exp v0.0.0-20231127185646-65229373498e
 	golang.org/x/sync v0.5.0
 )
@@ -16,8 +16,6 @@ require (
 	github.com/go-faster/errors v0.7.0 // indirect
 	github.com/go-faster/jx v1.1.0 // indirect
 	github.com/go-faster/xor v1.0.0 // indirect
-	github.com/go-logr/logr v1.3.0 // indirect
-	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/gotd/ige v0.2.2 // indirect
 	github.com/gotd/neo v0.1.5 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
@@ -27,7 +25,6 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/segmentio/asm v1.2.0 // indirect
 	go.opentelemetry.io/otel v1.21.0 // indirect
-	go.opentelemetry.io/otel/metric v1.21.0 // indirect
 	go.opentelemetry.io/otel/trace v1.21.0 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
 	go.uber.org/multierr v1.11.0 // indirect
