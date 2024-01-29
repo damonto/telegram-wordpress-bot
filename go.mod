@@ -3,9 +3,9 @@ module github.com/damonto/telegram-wordpress-bot
 go 1.21.1
 
 require (
-	github.com/celestix/gotgproto v1.0.0-beta15
+	github.com/celestix/gotgproto v1.0.0-beta16
 	github.com/go-resty/resty/v2 v2.11.0
-	github.com/gotd/td v0.95.0
+	github.com/gotd/td v0.96.0
 	golang.org/x/exp v0.0.0-20231127185646-65229373498e
 	golang.org/x/sync v0.6.0
 )
@@ -24,7 +24,7 @@ require (
 	github.com/gotd/neo v0.1.5 // indirect
 	github.com/jinzhu/inflection v1.0.0 // indirect
 	github.com/jinzhu/now v1.1.5 // indirect
-	github.com/klauspost/compress v1.17.4 // indirect
+	github.com/klauspost/compress v1.17.5 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
