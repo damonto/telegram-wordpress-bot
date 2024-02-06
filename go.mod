@@ -5,7 +5,7 @@ go 1.21.1
 require (
 	github.com/celestix/gotgproto v1.0.0-beta16
 	github.com/go-resty/resty/v2 v2.11.0
-	github.com/gotd/td v0.96.0
+	github.com/gotd/td v0.97.0
 	golang.org/x/exp v0.0.0-20231127185646-65229373498e
 	golang.org/x/sync v0.6.0
 )
